@@ -1,0 +1,661 @@
+﻿body {
+    background-color: white;
+    max-width: 1600px;
+    margin: 0;
+    padding: 0;
+    color: #132532;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    margin-bottom: -50px;
+    min-width: 500px;
+    font-size: 12pt;
+}
+
+h1 {
+    color: #132532;
+    font-size: 32pt;
+    margin: 10px 0 0 0;
+}
+
+h2 {
+    font-size: 24pt;
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+h2, h3 {
+    color: #132532;
+    margin: 10px 0 0 0;
+}
+
+h3 {
+    color: #132532;
+    font-size: 20pt;
+    margin-top: 20px;
+}
+
+#main-table {
+    padding: 0;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    max-width: 1600px;
+    width: 100%;
+}
+
+    #main-table tr {
+        padding: 0;
+        margin: 0;
+    }
+
+        #main-table tr td {
+            padding: 0;
+            margin: 0;
+        }
+
+#header-wrap {
+    width: 1600px;
+    margin: -0px auto 0 auto;
+    height: 170px;
+    text-align: center;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+    #header-wrap #header-content {
+        background: #132532;
+        background-image: url(../graphics/bgrepeat.png);
+        background-repeat: repeat;
+        margin: -0px auto 0 auto;
+        padding: 0;
+        height: 100px;
+    }
+
+        #header-wrap #header-content .logoImg {
+            padding: 0;
+            height: 180px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+
+        #header-wrap #header-content .conference-details {
+            position: relative;
+            right: 5%;
+            top: -50px;
+            text-align: right;
+            font-weight: normal;
+            color: white;
+            font-size: 16px;
+            margin: 0;
+            padding: 0px;
+        }
+
+        #header-wrap #header-content .church-logo {
+            position: absolute;
+            top: 110px;
+            left: 5%;
+        }
+
+.mainbannerimg {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.introImg {
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+    width: 1600px;
+    background-image: url(../graphics/introBg.jpeg);
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+#content-wrap {
+    height: auto;
+    width: 95%;
+    text-align: center;
+    position: relative;
+}
+
+#content-home {
+    height: auto;
+    width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+
+
+#content-vision {
+    height: auto;
+    width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: justify;
+    position: relative;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+}
+
+#content-sessions {
+    height: auto;
+    width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+    #content-sessions .content {
+        min-height: 400px;
+    }
+
+#content-contact {
+    height: auto;
+    width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+    #content-contact .content {
+        min-height: 500px;
+    }
+
+.footer {
+    position: relative;
+    padding: 2px 0;
+    margin: 0 auto 0 auto;
+    background-color: #000;
+    text-align: left;
+    width: 100%;
+    color: #f9f9f9;
+}
+
+    .footer .logo {
+        position: relative;
+        left: 5%;
+        height: 100px;
+        margin: 0 0 30px 0;
+        top: 20px;
+    }
+
+    .footer .church-address {
+        position: absolute;
+        right: 5%;
+        top: 20px;
+        text-align: right;
+        z-index: 999;
+        color: white;
+    }
+
+        .footer .church-address .main {
+            font-weight: bold;
+        }
+
+.pastors-img {
+    max-width: 800px;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    color: #002c4e;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+    .pastors-img img {
+        height: 250px;
+        width: 220px;
+        margin-right: 40px;
+        position: relative;
+        margin-top: 30px;
+    }
+
+.content {
+    position: relative;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.content-invert {
+    position: relative;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #f9f9f9;
+}
+
+/*#bottom-bar {
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    background-color: #132532;
+}*/
+.pastor-link {
+    display: inline;
+    margin: 0 auto;
+}
+
+    .pastor-link img, .pastor-link span {
+        cursor: pointer;
+    }
+
+.underline {
+    text-decoration: underline;
+}
+
+.header {
+    font-size: 20px;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+    font-family: bebas-neue;
+    letter-spacing: 2px;
+    font-size: 24pt;
+    display: block;
+    padding-top: 20px;
+}
+
+.header-invert {
+    color: #f9f9f9;
+}
+
+
+
+.rupee {
+    font-weight: 100;
+    color: #37485B;
+    font-size: 24px;
+}
+
+.pastor-link img {
+    display: inline-block;
+    width: 200px;
+}
+
+.session-names {
+}
+
+.session-Title {
+    text-transform: uppercase;
+    display: block;
+    font-size: 14pt;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#menu-wrap {
+    display: block;
+    position: fixed;
+    width: auto;
+    z-index: 99999;
+    right: 10px;
+    top: 10px;
+}
+
+    #menu-wrap #nav-menu {
+        display: block;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-family: Bebas;
+    }
+
+        #menu-wrap #nav-menu li {
+            display: inline-block;
+            position: relative;
+            width: auto;
+            text-align: center;
+            margin: 0 10px;
+            /*border-bottom: 2px solid #999;*/
+        }
+
+            #menu-wrap #nav-menu li a {
+                text-decoration: none;
+                text-align: center;
+                font-size: 12pt;
+                color: #EEE;
+                letter-spacing: 2px;
+                font-weight: 200;
+                padding: 2px 5px;
+                padding-bottom:4px;
+                background-color: #000;
+            }
+
+                #menu-wrap #nav-menu li a:hover {
+                    color: #ddd;
+                }
+                #menu-wrap #nav-menu .menu-icon{
+                    background-color:#000;
+                    color:#fff;
+                    font-family:'Arial';
+                    font-size:32px;
+                    position:relative;
+                    top:4px;
+                    padding:0 5px;
+                    font-weight:100;
+                    cursor:pointer;
+                }
+
+@media(max-width:600px) {
+    #menu-wrap {
+        margin-bottom: 10px;
+    }
+
+        #menu-wrap #nav-menu li a {
+            font-size: 10pt;
+            color: #000;
+        }
+}
+
+.center-div {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: auto;
+}
+
+.register-now {
+    height: 40px;
+    position: fixed;
+    right: 20%;
+    bottom: 0;
+    z-index: 99999;
+    text-decoration: none;
+    background-color: #132532;
+}
+
+    .register-now .limited {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 23px;
+        vertical-align: top;
+        background-color: #132532;
+        position: relative;
+        height: 45px;
+        padding: 5px;
+        bottom: -5px;
+        font-weight: 200;
+    }
+
+.pastors-pics {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+    .pastors-pics tr {
+        align: center;
+    }
+
+        .pastors-pics tr a {
+            color: #132532;
+            text-decoration: none;
+        }
+
+        .pastors-pics tr td {
+            font-size: 16pt;
+        }
+
+            .pastors-pics tr td img {
+                margin-top: 30px;
+                height: 180px;
+            }
+
+
+/***************POPUP WINDOW FOR PASTORS**************/
+
+#popup-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url(../graphics/tran.png);
+    background-repeat: repeat;
+    z-index: 99999;
+    display: none;
+    text-align: center;
+}
+
+    #popup-wrap .popup-window {
+        position: relative;
+        top: 20px;
+        height: auto;
+        max-height: 90%;
+        width: 700px;
+        background-color: #132532;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 0 auto;
+        opacity: 1;
+        overflow: auto;
+    }
+
+        #popup-wrap .popup-window #close-button {
+            height: 25px;
+            width: 25px;
+            background-color: #FFF;
+            color: #132532;
+            font-size: 18px;
+            font-weight: bolder;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 15px;
+            vertical-align: middle;
+            cursor: pointer;
+            text-align: center;
+            z-index: 99999;
+            padding-right: 2px;
+            padding-top: 2px;
+        }
+
+        #popup-wrap .popup-window .speaker-name {
+            color: #FFF;
+            font-size: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+            margin: 0 auto;
+        }
+
+        #popup-wrap .popup-window img {
+            height: 150px;
+            margin-top: 15px;
+        }
+
+        #popup-wrap .popup-window .speaker-info {
+            color: #EEE;
+            font-size: 13px;
+            text-align: left;
+            width: 98%;
+            margin: 0 auto;
+            line-height: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #popup-wrap .popup-window a {
+            color: #DDD;
+            text-decoration: underline;
+        }
+
+.promo-wrap {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.side-head {
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    font-family: Bebas;
+    letter-spacing: 1px;
+}
+
+
+.details {
+    font-size: 20px;
+    margin: 10px auto 10px auto;
+    color: #37485B;
+    font-weight: normal;
+}
+
+.session-block {
+    width: 500px;
+    background-color: #000;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    color: #FFF;
+    margin-top: 20px;
+}
+
+    .session-block .mask {
+        position: absolute;
+        width: 500px;
+        height: 300px;
+        background-color: rgba(255,255,255,0.5);
+        top: 0;
+        left: 0;
+        z-index: 500;
+        text-align: center;
+        color: #000;
+        font-weight: bolder;
+    }
+
+        .session-block .mask .text {
+            position: absolute;
+            width: 100%;
+            top: 250px;
+            font-size: 22px;
+            color: #000;
+            text-align: center;
+            height: 100%;
+        }
+
+    .session-block .session-Title {
+        font-weight: bold;
+        font-size: 20px;
+        position: relative;
+        top: 10px;
+    }
+
+    .session-block .session-Speaker {
+        font-size: 16px;
+        position: relative;
+        left: -150px;
+    }
+
+    .session-block .session-speakerPic {
+        position: relative;
+        left: -150px;
+    }
+
+        .session-block .session-speakerPic img {
+            height: 150px;
+            margin-top: 20px;
+        }
+
+    .session-block .session-description {
+        font-size: 14px;
+        position: relative;
+        top: -170px;
+        width: 300px;
+        left: 180px;
+        text-align: right;
+    }
+
+    .session-block a.session-download {
+        border: 1px solid #FFF;
+        font-size: 16px;
+        position: absolute;
+        padding: 4px 0px;
+        padding-bottom: 5px;
+        left: 35px;
+        bottom: 30px;
+        width: 120px;
+        cursor: pointer;
+        background: #f9f9f9;
+        color: #000;
+        text-decoration: none;
+        font-family: Bebas;
+    }
+
+    .session-block .session-download a {
+        color: #FFF;
+        text-decoration: none;
+        font-family: Bebas;
+    }
+
+    .session-block .session-listen {
+        border: 1px solid #FFF;
+        font-size: 16px;
+        padding: 4px 0px;
+        position: absolute;
+        left: 215px;
+        bottom: 30px;
+        width: 100px;
+        padding-bottom: 5px;
+        cursor: pointer;
+        background: #f9f9f9;
+        color: #000;
+        font-family: Bebas;
+    }
+
+        .session-block .session-listen a {
+            text-decoration: none;
+            color: #000;
+            font-family: Bebas;
+        }
+
+    .session-block .session-watch {
+        border: 1px solid #FFF;
+        font-size: 16px;
+        padding: 4px 0px;
+        position: absolute;
+        left: 365px;
+        bottom: 30px;
+        padding-bottom: 5px;
+        width: 100px;
+        cursor: pointer;
+        background: #f9f9f9;
+        color: #000;
+        font-family: Bebas;
+    }
+
+.bottom-message {
+    position: fixed;
+    padding: 5px 20px;
+    bottom: 0px;
+    width: 500px;
+    background-color: #132532;
+    color: #FFF;
+    margin: 0 auto;
+    left: 10%;
+    display: none;
+    text-align: center;
+    z-index: 99999;
+    font-size: 20px;
+}
+
+@media(max-width:600px) {
+    .promo-wrap {
+        width: 400px;
+    }
+}

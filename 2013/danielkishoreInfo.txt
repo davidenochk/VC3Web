@@ -1,0 +1,16 @@
+﻿<span class="speaker-name">Ps DANIEL KISHORE</span>
+            <br />
+            <img src="graphics/DanielKishore.png" /><br />
+            <span class="speaker-info">Daniel Kishore Mylabathula is a preacher of the Word of God from Hyderabad, India. He had his call for a life time in ministry when he was pursuing his Masters in Mathematics. He has done Biblical training in Norway, and few leadership training programs in Hong Kong, Bangkok apart from Haggai Training in Singapore.<br/>However, his burden for India brought him to India. Back in India after much praying and waiting on the Lord, Rev. Daniel Kishore with a few committed believers,  started Shophar ministry in 2004 and serves today as its director.<br/>Shophar Ministry is today involved in evangelism, Church planting and training. Rev. Daniel Kishore’s passion is reaching the least areas where the Gospel has not been heard.<br/>He is married to Madhuri and blessed with 2 children Nathan Sushanth 8 years old and Amy Martha 5 years old.</span><br/>
+			<a href="http://www.shopharministries.com" target="_blank">SHOPHAR MINISTRIES</a>
+			
+            <div class="close-button" id="close-button">X</div>
+			<script type="text/javascript" language="javascript">
+			$(".close-button").click(function () {
+                $("#popup-wrap").fadeOut('slow');
+            });
+			$(".popup-window a").click(function () {
+                var $targetLocation = $(this).attr("href");
+                window.open($targetLocation, "_blank", "", true);
+            });
+			</script>

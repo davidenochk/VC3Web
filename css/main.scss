@@ -1,0 +1,224 @@
+﻿/*#region variables */
+$base-font-size: 1em;
+$banner-max-height: 350px;
+$banner-min-height:300px;
+$content-min-height:400px;
+$banner-font-size-lg: $base-font-size*4;
+$banner-font-size-md: $base-font-size*2;
+$banner-font-size-sm: $base-font-size*1;
+$base-vertical-padding: 5px;
+$base-horizontal-padding: 10px;
+$base-vertical-margin: 10px;
+$base-horizontal-margin: 20px;
+$base-padding: 10px;
+$lg-btn-width: 200px;
+$white: #fff;
+$black: #3d3d3d;
+/*#endregion */
+/*#region Banner(On every content page, add sliding content) */
+*:focus {
+    outline: none;
+}
+
+.banner_wrap {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+
+    .bg {
+        background-position: center center;
+        background-size: cover;
+        background-image: url(../Images/bgs/Web_1.JPG);
+        height: auto;
+        vertical-align: middle;
+
+        .slider_content {
+            min-width: 300px;
+            max-height: $banner-max-height;
+            min-height:$banner-min-height;
+            margin: auto;
+            padding: $base-padding*3;
+            vertical-align: middle;
+            position: relative;
+            top: 15%;
+            color: #FFF;
+
+            .slide {
+                display: block;
+                text-align: center;
+                margin: 20px;
+            }
+
+            .lg-text {
+                font-size: $banner-font-size-lg;
+                font-weight: 800;
+                text-transform: uppercase;
+                line-height: 1;
+            }
+
+            .md-text {
+                font-size: $banner-font-size-md;
+                font-weight: 600;
+                text-transform: uppercase;
+                line-height: 1;
+            }
+
+            .sm-text {
+                font-size: $banner-font-size-sm;
+                font-weight: 400;
+                text-transform: uppercase;
+                line-height: 1;
+            }
+        }
+    }
+}
+.main_content{
+    text-align:center;
+    background-color:$white;
+    color:$black;
+    display:block;
+    padding:20px 0;
+    margin:0 auto;
+    min-height:$content-min-height
+}
+.main_title{
+    font-size:$base-font-size*3;
+    color:$black;
+    display:block;
+    text-align:center;
+    font-weight:bold;
+    text-transform:uppercase;
+    line-height:1;
+}
+.content{
+    font-size:$base-font-size * 1.3;
+    line-height:1.3;
+    text-align:center;
+    display:block;
+    margin:0 5px;
+}
+
+/*#endregion */
+
+/*#region Buttons */
+@mixin btn() {
+    cursor: pointer;
+    white-space: nowrap;
+    margin: $base-vertical-margin $base-horizontal-margin;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+@mixin lg-btn() {
+    white-space: nowrap;
+    width: $lg-btn-width;
+    padding: $base-vertical-padding $base-horizontal-padding;
+    @include btn();
+}
+
+.lg-btn-lt {
+    border: 3px solid #FFF;
+    color: $black;
+    background-color: #FFF;
+    @include lg-btn();
+}
+
+.lg-btn-lt:hover {
+    background-color: $black;
+    color: #fff;
+}
+
+.lg-btn-trans {
+    border: 3px solid $white;
+    color: #FFF;
+    @include lg-btn();
+}
+
+.lg-btn-trans:hover {
+    background-color: $white;
+    color: $black;
+    border: 3px solid $white;
+}
+
+
+/*#endregion */
+
+/*#region Side Headings */
+
+
+.side-head {
+    color: $black;
+    font-weight: 200;
+    font-size: 3em;
+    margin: 0 auto;
+    width: 97%;
+    text-align: left;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1em;
+}
+
+
+/*#endregion */
+
+/*#region Background Image Styles */
+.big-banner-content {
+    display: block;
+    width: 90%;
+    margin: 40px auto;
+    position: relative;
+}
+
+.mobile-image {
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+}
+
+@media(max-width:500px) {
+    .mobile-image {
+        height: 500px !important;
+        background-size: cover;
+    }
+}
+
+.back-left {
+    background-position: left;
+}
+
+.back-center {
+    background-position: center;
+}
+
+.back-right {
+    background-position: right;
+}
+
+.back-top {
+    background-position: center top;
+}
+
+.series-wrap .mobile-image {
+    width: 104%;
+    margin: 20px 0;
+    margin-left: -2%;
+}
+
+.sermon-banner .imgSermon {
+    height: 400px;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    position: fixed;
+}
+.banner-margin{margin-top:360px;}
+/*#endregion */

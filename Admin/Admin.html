@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link href="../css/angular-material.min.css" rel="stylesheet" />
+    <script src="../scripts/angular.min.js"></script>
+    <script src="../scripts/angular-animate.min.js"></script>
+    <script src="../scripts/angular-aria.min.js"></script>
+    <script src="../scripts/angular-material.min.js"></script>
+    <script src="../js/app.js"></script>
+</head>
+<body ng-app="vc3app">
+    <div ng-controller="AppCtrl" layout="column">
+        <section layout="column" layout-align="center" flex>
+            <div layout="row" layout-align="center center">
+                <img ng-src="{{srm.art}}" />
+                <img ng-src="{{srm.art_sml}}" />
+            </div>
+        </section>
+        <section style="max-width:400px;margin:0 auto;" layout="column" layout-align="center" flex>
+            <div layout="column" flex>                
+                <div layout="row">
+                    <md-input-container flex>
+                        <label for="srm_art">Art</label>
+                        <input type="text" ng-model="srm.art" />
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label for="srm_art_sml">Art Small</label>
+                        <input type="text" ng-model="srm.art_sml" />
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label for="srm_audio">Audio</label>
+                        <input type="text" name="srm_audio" ng-model="srm.audio" />
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row" flex>
+                <!-- Row 2 -->
+                <!-- Sermon Name / Sermon By / Sermon Date -->
+                <!-- Sermon Description -->
+                <div layout="column" flex>
+                    <div layout="row" flex>
+                        <md-input-container flex>
+                            <label for="srm_Name">Sermon Name</label>
+                            <input type="text" id="srm_name" ng-model="srm.name" />
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label for="srm_date">Date</label>
+                            <input type="date" name="srm_date" ng-model="srm.date" />
+                        </md-input-container>
+                    </div>
+                    <div layout="row" flex>
+                        <md-select placeholder="Series" ng-model="srm.series" flex>
+                            <md-option ng-repeat="ser in series" ng-value="ser.SERIESID">{{ser.SERIESNAME}}</md-option>
+                        </md-select>
+                        <md-select placeholder="Speaker" ng-model="srm.by" flex>
+                            <md-option ng-repeat="speaker in speakers" ng-value="speaker.SPEAKERID">{{speaker.SPEAKERNAME}}</md-option>
+                        </md-select>
+                    </div>
+                    <div layout flex>
+                        <md-input-container flex>
+                            <label for="srm_Desc">Sermon Description</label>
+                            <textarea type="text" id="srm_desc" ng-model="srm.desc"></textarea>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <!-- Series Image Col1 -->
+            <!-- Series Description Col2 -->
+            <md-button ng-click="AddSermon()" class="md-raised">Add Sermon</md-button>
+        </section>
+    </div>
+</body>
+</html>

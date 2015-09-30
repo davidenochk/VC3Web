@@ -1,0 +1,158 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="main.master.cs" Inherits="Presentation_main" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="vc3app">
+<head id="Head1" runat="server">
+    <title>C3 Church Secunderabad - BUILD • INFLUENCE</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <script src="../../js/Analytics.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shorcut icon" type="image/x-icon" href="../Images/favicon.ico" />
+    <meta name="description" content="C3 CHURCH SECUNDERABAD IS ONE OF THE CONTEMPORARY CHURCHES IN HYDERABAD AND SECUNDERABAD WITH BURDEN FOR URBAN YOUTH, PASSIONATE TO PRAISE, WORSHIP AND GLORIFY GOD AND EMPOWER THE WEAK WITH THE WORD OF GOD." />
+    <meta name="keywords" content="C3 CHURCH, C3 VICTORY SECUNDERABAD, C3 Church Secunderabad, C3 Victory, C3 India, church near clock tower, VC3 Church, churches in secunderabad, youth church, christian music, christian, christ centered, pentecostal, spirit filled, churches in hyderabad, friends, hang out" />
+    <script src="../../scripts/jquery-2.1.4.min.js"></script>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script src="../../scripts/angular-material.min.js"></script>
+    <script src="../../scripts/angular-animate.min.js"></script>
+    <script src="../../scripts/angular-aria.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="../../scripts/angular-fire.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <script src="../../js/app.js"></script>
+    <link href="../css/fonts.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.second-nav-header li').click(function () {
+                var $target = $($(this).attr('class'));
+                if ($($target).html() == undefined)
+                    $target = $('div.' + $(this).attr('class'));
+                if ($target.length) {
+                    var targetOffset = $target.offset().top - 70;
+                    console.log(targetOffset);
+                    $('html,body')
+                    .animate({ scrollTop: targetOffset }, 1000);
+                    return false;
+                }
+            });
+            $('.menu-icon').click(function () {
+                if ($('#navv-menu li').css('display') == 'none')
+                    $('#navv-menu li').css('display', 'block');
+                else if ($('#navv-menu li').css('display') == 'block')
+                    $('#navv-menu li').css('display', 'none');
+            });
+            $('.menu-icon').on('tap', function () {
+                if ($('#navv-menu li').css('display') == 'none')
+                    $('#navv-menu li').css('display', 'block');
+                else if ($('#navv-menu li').css('display') == 'block')
+                    $('#navv-menu li').css('display', 'none');
+            });
+            $(window).resize(function () {
+                if ($(window).width() > 800) {
+                    $('#navv-menu li').css('display', 'block');
+                }
+                else
+                    $('#navv-menu li').css('display', 'none');
+            });
+        });
+    </script>
+    <script>
+        function CloseMenu() {
+            $('#side-menu').removeClass('show').addClass('hide');
+        };
+        function OpenMenu() {
+            $('#side-menu').removeClass('hide').addClass('show');
+        }
+        $(function () {
+            //Open close menu on click
+            $('#menu-icon').click(function () {
+                if ($('#side-menu').hasClass('show')) { CloseMenu(); }
+                else { OpenMenu(); };
+            });
+            //Animations to the menu close button
+            $('.close').mouseenter(function () {
+                $(this).addClass('rotate').removeClass('unrotate');
+            }).mouseleave(function () {
+                $(this).removeClass('rotate').addClass('unrotate');
+            });
+            $('#side-menu ul li').click(function () { CloseMenu(); });
+            $('#side-menu .close').click(function () { CloseMenu(); });
+            //Handle outside click to close the side-menu
+            //$('.container').click(function () { CloseMenu(); });
+            //$('#content-wrap').click(function () { CloseMenu(); });
+        })
+    </script>
+    <style>
+        
+
+        @media(min-width:800px) {
+            .series-wrap .mobile-image {
+                float: left;
+                width: 50%;
+                margin: 0 20px 20px 0;
+            }
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none; width: 0; height: 0;">
+        <defs>
+            <filter id="svgbg" x="0" y="0">
+                <feColorMatrix in="SourceGraphic" type="saturate" values="0.4"></feColorMatrix>
+            </filter>
+        </defs>
+    </svg>
+    <form id="form1" runat="server">
+        <div id="top-bar">
+            <img src="../../Images/church-logo-white.png" class="logo svglogo" />
+            <%--<div id="title">Victory Christian City Church</div>
+                <div id="title2">VC3 Church</div>--%>
+        </div>
+        <div id="side-menu" class="hide">
+            <div class="close">X</div>
+            <div id="menu-icon">
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
+                <span>Menu</span>
+            </div>
+            <ul>
+                <li>
+                    <asp:HyperLink ID="hplinkMenuHome" runat="server" NavigateUrl="../Presentation/Home" Text="Home"><md-icon md-svg-icon="action:home"></md-icon>Home</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="hplinkMenuAbout" runat="server" NavigateUrl="../Presentation/About" Text="About Us"><md-icon md-svg-icon="action:info_outline"></md-icon>About</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="hplinkMenuEvents" runat="server" NavigateUrl="../Presentation/Ministries" Text="Ministries"><md-icon md-svg-icon="social:group_add"></md-icon>Ministries</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="hplinkMenuSermons" runat="server" NavigateUrl="../Presentation/Archive" Text="Sermons"><md-icon md-svg-icon="hardware:tv"></md-icon>Sermon Archive</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="hplinkMenuContact" runat="server" NavigateUrl="../Presentation/Contact" Text="Contact"><md-icon md-svg-icon="comm:call"></md-icon>Contact</asp:HyperLink>
+                </li>
+            </ul>
+        </div>
+        <div id="main-wrap">
+            <div id="content-wrap">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="footer-wrap">
+                <img src="../../Images/church-logo.png" class="footer-logo" />
+                <div class="footer-social">
+                    <a href="http://facebook.com/c3victory" target="_blank">
+                        <img src="../../Images/soc-fb-on.png" /></a>
+                    <%--<a href="http://twitter.com/c3victorysecbad" target="_blank">
+                        <img src="../../Images/soc-tw-on.png" /></a>--%>
+                    <%--<a href="http://instagram.com/c3victorysecbad" target="_blank">
+                        <img src="../../Images/soc-inst-on.png" /></a>--%>
+                </div>
+                <span class="footer-copyrights">&copy; C3 Victory Secunderabad 2015</span>
+                <span class="footer-address">Plot No 90 P&T Colony<br />
+                    Trimulgherry, Hyderabad - 500015</span>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

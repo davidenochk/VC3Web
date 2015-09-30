@@ -1,0 +1,62 @@
+﻿body{
+    font-family:'Segoe UI';
+    
+}
+.panel {
+    background-color:transparent;
+    margin:60px auto;
+    position:relative;
+    top:0px;
+    width:100%;
+    padding:0px 0;
+    display:block;
+}
+    .panel .title {
+        font-size: 32px;
+        text-align: center;
+        margin-left:30px;
+    }
+    .panel input[type="text"],textarea {
+        margin: 5px 30px;
+        padding:3px 10px;
+        border:1px solid #FFF;
+        line-height:22px;
+        width:300px;
+    }
+    .panel input[type="submit"] {
+        margin: 20px 80px;
+        background-color:#FAA;
+        border:1px solid #F77;
+        color:#FFF;
+        padding:5px 30px;
+        font-size:16px;
+    }
+    .panel div span {
+        margin-left:20px;
+    }
+
+.admin-menu-wrap {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 40px;
+    z-index:80000;
+}
+
+.grd-main{
+    margin-top:20px;
+    text-align:center;
+    border:none;
+}
+.grd-main tr td, .grd-main tr th{
+    padding:2px 5px;
+    border:none;
+    border-bottom:thin solid #222;
+}
+.grd-main tr th{
+    background-color:#FAA;
+    color:#000;
+}
+.grd-series-art img{
+    width:120px;
+}

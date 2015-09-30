@@ -1,0 +1,17 @@
+﻿<span class="speaker-name">Ps RUFUS GANTA</span>
+            <br />
+            <img src="graphics/Rufus.png" /><br />
+            <span class="speaker-info">Ps.Rufus Ganta at the age of ten received the Lord in a children’s camp conducted by Child Evangelism Fellowship and has been involved in local church ministry serving in the Sunday school and different youth ministries. While studying for Masters in Computer Applications he answered the call of God on his life in 1994. He was trained for ministry at The King's Temple church and served in different roles from worship Pastor to an Assistant. His desire to teach people about worship has led him to join Sounds of the Nations in 2004 and has been with them ever since. He received training in worship arts at IWAR (Institute of Worship Arts Recording) and also at Bethel School of Supernatural Worship, California. Apart from that He was trained in Christian Leadership program of Haggai Institute in Hawaii.  He is passionate about raising up an end time army of Prophetic Worshipers who will represent their language, culture, their sound before the throne of God and impact their generation with the arts.  As Sounds of the Nations, He travels to different countries across the globe leading, teaching and modelling worship.
+<br/> He also serves on the pastoral team of Pearl City Church and is instrumental in setting up iexcel(institute for excellence in worship arts) at Pearl City Church, where they train people from all over India. He is married to Mayuri and together they are proud parents of Amy & Samuel.<br/>
+			<a href="https://www.facebook.com/rufusganta" target="_blank">FACEBOOK</a>
+            </span>
+            <div class="close-button" id="close-button">X</div>
+			<script type="text/javascript" language="javascript">
+			$(".close-button").click(function () {
+                $("#popup-wrap").fadeOut('slow');
+            });
+			$(".popup-window a").click(function () {
+                var $targetLocation = $(this).attr("href");
+                window.open($targetLocation, "_blank", "", true);
+            });
+			</script>

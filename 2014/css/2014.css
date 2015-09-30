@@ -1,0 +1,371 @@
+﻿@font-face {
+    font-family: 'bebas-neue';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/BebasNeue-webfont.woff') format('woff'), url('fonts/BebasNeue-webfont.ttf') format('truetype'), url('fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.main-title {
+    padding: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: bebas-neue;
+    font-size: 20px;
+    color: #f9f9f9;
+    position: relative;
+    z-index: 10;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #000;
+}
+.main-video{
+    position:relative;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:100%;
+}
+#content-speakers {
+    text-align: center;
+    height: auto;
+    margin: 0 auto 0 auto;
+}
+
+.speakers {
+    padding-top: 20px;
+}
+
+.pastor-link {
+    width: 250px;
+    position: relative;
+    height: 300px;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+    .pastor-link img {
+        width: 200px;
+        position: relative;
+    }
+
+    .pastor-link .speaker-name {
+        font-size: 14pt;
+        font-family: bebas-neue;
+        position: relative;
+        display: block;
+    }
+
+.session-names {
+    padding: 50px 0;
+}
+
+.session-Title {
+    font-family: bebas-neue;
+    font-size: 16pt;
+    margin: 10px 0;
+    font-size: 20pt;
+    letter-spacing: 5px;
+}
+
+    .session-Title:last-child {
+        margin-bottom: 30px;
+    }
+
+.invert-bg {
+    background-color: #000;
+    color: #f9f9f9;
+}
+
+    .invert-bg h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .invert-bg .register-notes {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: center;
+    }
+/*Registration Form*/
+.form-register {
+    width: 50%;
+    position: relative;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+    .form-register input[type="text"] {
+        background-color: #f9f9f9;
+        border: 0;
+        border-bottom: 1px solid #000;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-register span {
+        display: block;
+        width: 100%;
+        text-align: left;
+        color: #000;
+    }
+
+    .form-register input[type='submit'] {
+        background-color: #000;
+        margin: 0;
+        padding: 5px 20px;
+        color: #f9f9f9;
+        border: 0;
+        margin-top: 20px;
+    }
+
+.social-button {
+    width: 20px;
+    height: 20px;
+}
+
+.promo-wrap {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+}
+
+    .promo-wrap iframe {
+        width: 700px;
+        height: 400px;
+    }
+
+.sponsor-details {
+    width: 90%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding: 100px 0px;
+    text-align: center;
+}
+
+    .sponsor-details img {
+        width: 250px;
+        margin: 10px auto;
+        display: inline-block;
+        position: relative;
+    }
+
+.imp {
+    margin: 0 10px;
+    font-family: bebas-neue;
+}
+
+.web {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+.main-details {
+    font-family: 'EB Garamond';
+    font-size: 14pt;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.website {
+    color: #f9f9f9;
+    border-bottom: 1px dotted #f9f9f9;
+    text-decoration: none;
+}
+
+    .website:hover {
+        border-bottom: 1px solid #f9f9f9;
+    }
+
+.overlay-div {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: none;
+    font-family: 'Segoe UI';
+}
+
+    .overlay-div .content-wrapper {
+        width: 700px;
+        height: 80%;
+        margin: 0 auto;
+        top: 10%;
+        position: relative;
+        background-color: rgba(0,0,0,1);
+        padding: 10px 20px;
+        overflow: hidden;
+        border-radius: 5px;
+        border: 2px solid #999;
+        color: #ddd;
+        font-weight: 200;
+        font-size: 10pt;
+        letter-spacing: 0;
+        text-align: justify;
+    }
+
+        .overlay-div .content-wrapper img {
+            margin: 0 auto;
+            position: relative;
+            display: block;
+            height: 40%;
+            padding: 0;
+        }
+
+        .overlay-div .content-wrapper .close {
+            content: 'X';
+            font-family: Verdana;
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 20px;
+            line-height: 25px;
+            padding: 2px 5px;
+            z-index: 99999999;
+            background-color: #AAA;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .overlay-div .content-wrapper .speaker-name {
+            font-size: 14pt;
+            font-family: bebas-neue;
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .overlay-div .content-wrapper .speaker-info {
+            overflow-y: auto;
+            height: 300px;
+        }
+
+        .overlay-div .content-wrapper a {
+            color: white;
+        }
+
+.listen-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.closeAudio{
+    display:inline-block;
+    background-color:#111;
+    color:#fff;
+    line-height:30px;
+    font-size:20px;
+    margin:0 5px;
+    padding:0 2px;
+    position:relative;
+    bottom:8px;
+    font-family:Arial;
+    cursor:pointer;
+}
+
+.no-resource {
+    display: none;
+}
+
+.no-audio {
+    display: none;
+}
+
+.no-video {
+    display: none;
+}
+.sermon-wrapper{
+    position:fixed;
+    display:none;
+    background-image:url(../graphics/bgrepeat.png);
+    background-repeat:repeat;
+    background-color:rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:999999;
+}
+.sermon-wrapper iframe{
+    width:853px;
+    height:480px;
+    margin:0 auto;
+    position:relative;
+    top:10%;
+    display:block;
+}
+
+@media(max-width:600px) {
+    .main-title {
+        font-size: 32pt;
+        margin-bottom: 0px;
+    }
+
+    .main-details {
+        margin-top: 10px;
+    }
+
+    .web {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .form-register {
+        width: 90%;
+    }
+
+    .promo-wrap {
+        width: 400px;
+    }
+
+        .promo-wrap iframe {
+            width: 400px;
+            height: 300px;
+        }
+
+    .overlay-div .content-wrapper {
+        padding: 2px;
+        width: 96%;
+        height: 90%;
+        top: 5%;
+        font-size: 12pt;
+    }
+
+        .overlay-div .content-wrapper .speaker-info {
+            overflow-y: auto;
+            height: 300px;
+        }
+
+        .overlay-div .content-wrapper .close {
+            font-size: 40px;
+            line-height: 45px;
+        }
+}

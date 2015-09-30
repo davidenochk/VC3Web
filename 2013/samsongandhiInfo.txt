@@ -1,0 +1,17 @@
+﻿<span class="speaker-name">Dr SAMSON GANDHI</span>
+            <br />
+            <img src="graphics/SamsonGandhi.png" /><br />
+            <span class="speaker-info">Dr. Samson Gandhi had a successful career in Marketing and Exports & Imports of Garments and Textiles, for ten years.  Responding to God’s call, he left his lucrative career in business in 1993 and served Haggai Institute in India as its Finance & Administration Manager.  With a clear vision from the Lord in 1997, he successfully launched Person to Person ~ Institute for Christian Counselling to train Biblical Counsellors for the Church.  In preparation to launch the counselling ministry, he did a Certificate course in Christian Counselling from CWR, UK. As the Executive Director of ‘Person to Person (PtP) ~ Institute for Christian Counselling’, he pioneered this ministry in India.  PtP trains Biblical Counsellors for the Church all across the nation and neighboring countries.  Under his stewardship PtP has developed several recognized training courses and counselling resources. PtP has also facilitated the formation of the Association of Christian Counsellors – South Asia – an Accreditation Body to oversee the standards of Biblical Counsellors.  He served as the General Secretary.  He has earned his Doctorate in Ministry from Bakke Graduate University in Seattle, Washington, USA in 2012. <br />Samson has contributed many articles on Counselling in national magazines and International Journals. He has co-authored a book titled ‘Shelters on the Highway’ which gives guidelines on how to establish counselling centers.<br/>He is married to Christine and they are blessed with three children: Michael, Jasper and Gabriela. Michael is married to Amanda.<br/>
+			<a href="https://www.facebook.com/samson.gandhi">FACEBOOK</a><br/>
+			<a href="http://counselptp.org/">Person To Person</a><br/>
+            </span>
+            <div class="close-button" id="close-button">X</div>
+			<script type="text/javascript" language="javascript">
+			$(".close-button").click(function () {
+                $("#popup-wrap").fadeOut('slow');
+            });
+			$(".popup-window a").click(function () {
+                var $targetLocation = $(this).attr("href");
+                window.open($targetLocation, "_blank", "", true);
+            });
+			</script>
