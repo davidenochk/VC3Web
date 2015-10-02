@@ -16,6 +16,9 @@ Array.prototype.findAll = function (c, v) {
     }
     return r;
 };
+function comp(a, b) {
+    return -new Date(a.SERMONDATE).getTime() + new Date(b.SERMONDATE).getTime();
+}
 var app = angular.module('vc3app', ['ngMaterial', 'firebase'])
     .config(function ($mdIconProvider) {
         $mdIconProvider
@@ -64,9 +67,6 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
     $scope.sermon = {};
     $scope.GetSermonData = function () {
         var sermons = $scope.sermons;
-        function comp(a, b) {
-            return -new Date(a.SERMONDATE).getTime() + new Date(b.SERMONDATE).getTime();
-        }
         //Sort by date
         sermons.sort(comp);
         var result = [];
@@ -110,7 +110,7 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
         //Get the sermonid from query strings
         //Match the sermonid in the sermonsCollection
         //Set the sermon details to the $scope.sermon variable
-        var sermonID = 1;
+        var sermonID = $scope.sermons.sort(comp)[0].SERMONID;
         for (var i = 0; i < $scope.sermons.length; i++) {
             if ($scope.sermons[i].SERMONID === sermonID)
                 $scope.sermon = $scope.sermons[i];
@@ -118,7 +118,9 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
     }
     $scope.series.$loaded(function () {
         $scope.SetCurrentSeries();
-        console.log($scope.serie);
+    })
+    $scope.sermons.$loaded(function () {
+        $scope.SetCurrentSermon();
     })
 })
 app.service('data', function ($firebaseArray) {
