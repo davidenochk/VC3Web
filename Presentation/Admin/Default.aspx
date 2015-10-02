@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <div class="admin-menu-wrap">
+    <div class="admin-menu-wrap" ng-controller="AdminController">
         <ul class="second-nav-header">
             <li class="panel1"><a href="#">Add Sermon</a></li>
             <li class="panel2"><a href="#">Add Series</a></li>

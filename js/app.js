@@ -1,24 +1,4 @@
 ﻿"use strict";
-Array.prototype.find = function (c, v) {
-    for (var i = 0; i < this.length; i++) {
-        if (this[i][c] === v) {
-            return this[i];
-        }
-    }
-    return [];
-};
-Array.prototype.findAll = function (c, v) {
-    var r = [];
-    for (var i = 0; i < this.length; i++) {
-        if (this[i][c] === v) {
-            r.push(this[i]);
-        }
-    }
-    return r;
-};
-function comp(a, b) {
-    return -new Date(a.SERMONDATE).getTime() + new Date(b.SERMONDATE).getTime();
-}
 var app = angular.module('vc3app', ['ngMaterial', 'firebase'])
     .config(function ($mdIconProvider) {
         $mdIconProvider
@@ -29,7 +9,7 @@ var app = angular.module('vc3app', ['ngMaterial', 'firebase'])
         .iconSet('action', '../../icons/action.svg')
         .iconSet('navigation', '../../icons/navigation.svg', 24)
     })
-app.controller('AppCtrl', function ($scope, $http, $filter) {
+.controller('AppCtrl', function ($scope, $http, $filter) {
     $http.post('../vc3siteservice.asmx/GetSpeakers', {}).success(function (data) {
         $scope.speakers = JSON.parse(data.d);
     })
@@ -65,31 +45,6 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
     $scope.sermons = data.sermons;
     $scope.serie = {};
     $scope.sermon = {};
-    $scope.GetSermonData = function () {
-        var sermons = $scope.sermons;
-        //Sort by date
-        sermons.sort(comp);
-        var result = [];
-        //Find for each seriesid other than 0
-        for (var i = 0; i < sermons.length; i++) {
-            if (sermons[i]['SERIESID'] === 0)
-                result.push(sermons[i]);
-            else if (result.find('SERIESID', sermons[i]['SERIESID']).length == 0)
-                result.push(sermons[i]);
-        }
-        //console.log(result);
-        return result;
-    }
-    $scope.RedirectToSermon = function (id) {
-        $window.location.href = urls.sermonURL + id;
-    };
-    $scope.GetName = function (ser) {
-        if (ser.SERIESID == '0')
-            return ser.SERMONNAME;
-        else {
-            return $scope.series.find('SERIESID', ser.SERIESID).SERIESNAME;
-        }
-    }
     $scope.GetSermonURL = function (id) {
         return urls.sermonURL + id;
     }
@@ -112,8 +67,11 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
         //Set the sermon details to the $scope.sermon variable
         var sermonID = $scope.sermons.sort(comp)[0].SERMONID;
         for (var i = 0; i < $scope.sermons.length; i++) {
-            if ($scope.sermons[i].SERMONID === sermonID)
+            if ($scope.sermons[i].SERMONID === sermonID) {
                 $scope.sermon = $scope.sermons[i];
+                $scope.sermonDescription = $sce.trustAsHtml($scope.sermon.SERMONDESCRIPTION);
+                return;
+            }
         }
     }
     $scope.series.$loaded(function () {
@@ -123,15 +81,78 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
         $scope.SetCurrentSermon();
     })
 })
-app.service('data', function ($firebaseArray) {
-    var serObj = new Firebase("https://demovc3.firebaseio.com/sermons");
-    var srsObj = new Firebase("https://demovc3.firebaseio.com/series");
-    var spkObj = new Firebase("https://demovc3.firebaseio.com/speakers");
-    this.series = $firebaseArray(srsObj);
-    this.sermons = $firebaseArray(serObj);
-    this.speakers = $firebaseArray(spkObj);
-})
+app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
+    let thiss = this;
+    this.series = {};
+    this.GetSeries = function () {
+        var q = $q.defer();
+        if (!thiss.series.length) {
+            var srsObj = new Firebase(urls.fire_SeriesURL);
+            var series = $firebaseArray(srsObj);
+            series.$loaded(function (res) { thiss.series = res; q.resolve(thiss.series); })
+        } else {
+            q.resolve(thiss.series);
+        }
+        return q.promise;
+    }
+    this.sermons = {};
+    this.GetSermons = function () {
+        var q = $q.defer();
+        if (!thiss.series.length) {
+            var srsObj = new Firebase(urls.fire_SermonsURL);
+            var sermons = $firebaseArray(srsObj);
+            sermons.$loaded(function (res) { thiss.sermons = res; q.resolve(thiss.sermons); })
+        } else {
+            q.resolve(thiss.sermons);
+        }
+        return q.promise;
+    }
+    this.speakers = {};
+    this.GetSpeakers = function () {
+        var q = $q.defer();
+        if (!thiss.speakers.length) {
+            var srsObj = new Firebase(urls.fire_SpeakersURL);
+            var speakers = $firebaseArray(srsObj);
+            speakers.$loaded(function (res) { thiss.speakers = res; q.resolve(thiss.speakers); })
+        } else {
+            q.resolve(thiss.speakers);
+        }
+        return q.promise;
+    }
+    this.Add = function (name, sermon) {
+        var deferred = $q.defer();
+        var srsObj = new Firebase(urls.fire_SermonsURL);
+        var sermons = $firebaseArray(srsObj);
+        console.log('trig');
+        sermons.$add(sermon).then(function (ref) {
+            var id = ref.key();
+            deferred.resolve(id);
+        })
+        return deferred.promise;
+    }
+    this.Edit = function (name, newsermon, id) {
+        var deferred = $q.defer();
+        var srs = new Firebase(urls.fire_SermonsURL + "/" + id);
+        var sermon = $firebaseObject(srs);
+        sermon = CopyObject(newsermon, sermon);
+        sermon.$save().then(function (res) {
+            deferred.resolve(res);
+        })
+        return deferred.promise;
+    }
+    var CopyObject = function (oldObj, newObj) {
+        var keys = Object.keys(oldObj);
+        for (var i = 0 ; i < keys.length; i++) {
+            var key = keys[i];
+            newObj[key] = oldObj[key];
+        }
+        return newObj;
+    }
+});
 app.service('urls', function ($window) {
     this.sermonURL = 'http://' + $window.location.host + '/Presentation/Sermons?sermonid=';
     this.seriesURL = 'http://' + $window.location.host + '/Presentation/Series?seriesid=';
+    this.fire_SermonsURL = "https://demovc3.firebaseio.com/sermons";
+    this.fire_SeriesURL = "https://demovc3.firebaseio.com/series";
+    this.fire_SpeakersURL = "https://demovc3.firebaseio.com/speakers";
 })

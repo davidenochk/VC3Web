@@ -1,8 +1,8 @@
 ﻿/*#region variables */
 $base-font-size: 1em;
 $banner-max-height: 350px;
-$banner-min-height:300px;
-$content-min-height:400px;
+$banner-min-height: 300px;
+$content-min-height: 400px;
 $banner-font-size-lg: $base-font-size*4;
 $banner-font-size-md: $base-font-size*2;
 $banner-font-size-sm: $base-font-size*1;
@@ -39,7 +39,7 @@ $black: #3d3d3d;
         .slider_content {
             min-width: 300px;
             max-height: $banner-max-height;
-            min-height:$banner-min-height;
+            min-height: $banner-min-height;
             margin: auto;
             padding: $base-padding*3;
             vertical-align: middle;
@@ -76,30 +76,33 @@ $black: #3d3d3d;
         }
     }
 }
-.main_content{
-    text-align:center;
-    background-color:$white;
-    color:$black;
-    display:block;
-    padding:20px 0;
-    margin:0 auto;
-    min-height:$content-min-height
+
+.main_content {
+    text-align: center;
+    background-color: $white;
+    color: $black;
+    display: block;
+    padding: 20px 0;
+    margin: 0 auto;
+    min-height: $content-min-height;
 }
-.main_title{
-    font-size:$base-font-size*3;
-    color:$black;
-    display:block;
-    text-align:center;
-    font-weight:bold;
-    text-transform:uppercase;
-    line-height:1;
+
+.main_title {
+    font-size: $base-font-size*3;
+    color: $black;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
 }
-.content{
-    font-size:$base-font-size * 1.3;
-    line-height:1.3;
-    text-align:center;
-    display:block;
-    margin:0 5px;
+
+.content {
+    font-size: $base-font-size * 1.3;
+    line-height: 1.3;
+    text-align: center;
+    display: block;
+    margin: 0 5px;
 }
 
 /*#endregion */
@@ -220,5 +223,24 @@ $black: #3d3d3d;
     z-index: -1;
     position: fixed;
 }
-.banner-margin{margin-top:360px;}
+
+.banner-margin {
+    margin-top: 360px;
+}
 /*#endregion */
+.table-container{
+    width:100%;
+    overflow:scroll;
+    max-height:300px;
+}
+td {
+    div {
+        max-width: 150px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{
+    padding:0;
+}

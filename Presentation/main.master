@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="vc3app">
 <head id="Head1" runat="server">
-    <title>C3 Church Secunderabad - BUILD • INFLUENCE</title>
+    <title>C3 Church Secunderabad - GROW • BUILD • INFLUENCE</title>
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/main.css" rel="stylesheet" />
     <script src="../../js/Analytics.js"></script>
@@ -18,7 +18,12 @@
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="../../scripts/angular-fire.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <script src="../../js/Utils.js"></script>
     <script src="../../js/app.js"></script>
+    <script src="../Archive/ArchiveService.js"></script>
+    <script src="../Archive/ArchiveController.js"></script>
+    <script src="../Admin/AdminService.js"></script>
+    <script src="../Admin/AdminController.js"></script>
     <link href="../css/fonts.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {

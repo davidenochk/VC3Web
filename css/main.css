@@ -174,3 +174,16 @@
   margin-top: 360px; }
 
 /*#endregion */
+.table-container {
+  width: 100%;
+  overflow: scroll;
+  max-height: 300px; }
+
+td div {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+  padding: 0; }
