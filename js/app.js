@@ -1,5 +1,5 @@
 ﻿"use strict";
-var app = angular.module('vc3app', ['ngMaterial', 'firebase'])
+var app = angular.module('vc3app', ['ngMaterial', 'firebase', 'Util'])
     .config(function ($mdIconProvider) {
         $mdIconProvider
         .defaultIconSet('../../icons/icon.svg')
@@ -8,6 +8,10 @@ var app = angular.module('vc3app', ['ngMaterial', 'firebase'])
         .iconSet('comm', '../../icons/communication.svg')
         .iconSet('action', '../../icons/action.svg')
         .iconSet('navigation', '../../icons/navigation.svg', 24)
+    })
+    .controller('MainCtrl', function ($scope, progress) {
+        $scope.progress = progress.GetCount();
+        console.log($scope.progress);
     })
 .controller('AppCtrl', function ($scope, $http, $filter) {
     $http.post('../vc3siteservice.asmx/GetSpeakers', {}).success(function (data) {
@@ -150,9 +154,16 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
     }
 });
 app.service('urls', function ($window) {
+    let _this = this;
     this.sermonURL = 'http://' + $window.location.host + '/Presentation/Sermons?sermonid=';
     this.seriesURL = 'http://' + $window.location.host + '/Presentation/Series?seriesid=';
     this.fire_SermonsURL = "https://demovc3.firebaseio.com/sermons";
     this.fire_SeriesURL = "https://demovc3.firebaseio.com/series";
     this.fire_SpeakersURL = "https://demovc3.firebaseio.com/speakers";
+    this.RedirectToSermon = function (id) {
+        $window.location.href = _this.sermonURL + id;
+    }
+    this.RedirectToSeries = function (id) {
+        $window.location.href = _this.seriesURL + id;
+    }
 })

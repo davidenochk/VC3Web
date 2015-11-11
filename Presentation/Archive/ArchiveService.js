@@ -12,7 +12,7 @@ app.service('ArchiveService', function (data, $q) {
         function (res) {
             //Series & Sermons are loaded
             thiss.Archive = GetArchiveList();
-            q.resolve(thiss.Archive);
+            q.resolve({ archive: thiss.Archive, series: data.series });
         })
         return q.promise;
     }
@@ -27,12 +27,12 @@ app.service('ArchiveService', function (data, $q) {
         var result = [];
         //Find for each seriesid other than 0
         for (var i = 0; i < sermons.length; i++) {
-            var serie = data.series.find('SERIESID', sermons[i].SERIESID);
-            if (sermons[i]['SERIESID'] === 0){
+            var serie = data.series.find('SeriesID', sermons[i].SeriesID);
+            if (sermons[i]['SeriesID'] === 0) {
                 //Add nothing
                 result.push(sermons[i]);
             }
-            else if (result.find('SERIESID', sermons[i]['SERIESID']).length == 0) {
+            else if (result.find('SeriesID', sermons[i]['SeriesID']).length == 0) {
                 //Add series name and series status
                 sermons[i].SERIES = serie;
                 result.push(sermons[i]);

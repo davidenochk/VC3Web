@@ -3,7 +3,7 @@
     font-weight: 300;
     font-size: 1em;
     line-height: 1.5em;
-    color: #3d3d3d;
+    color: #343434;
     position: relative;
     background-color: #FFF;
     -webkit-text-size-adjust: none;
@@ -71,8 +71,8 @@ md-icon svg path {
         }
 
             #side-menu ul li a md-icon {
-                margin-bottom: -7px;
-                height: 24px;
+                margin-bottom: 0px;
+                height: 25px;
                 width: 30px;
                 display: inline-block;
                 margin-right: 5px;
@@ -82,7 +82,7 @@ md-icon svg path {
                 color: #ddd;
                 text-decoration: none;
                 position: relative;
-                line-height: 20px;
+                line-height: 30px;
                 vertical-align: middle;
                 padding: 3px 7px;
                 font-size: 1em;
@@ -159,13 +159,11 @@ md-icon svg path {
     padding-right: 12px;
 }
 
-    #menu-icon md-icon {
-        margin-bottom: -7px;
-        height: 24px;
-        color: #fff;
-        width: 24px;
-        margin-right: 5px;
-        display: inline-block;
+    #menu-icon span {
+        line-height: 30px;
+        position: relative;
+        vertical-align: middle;
+        margin-left: 5px;
     }
 
 @media(max-width:800px) {
@@ -181,12 +179,12 @@ md-icon svg path {
         }
 }
 
-.show {
+.visible {
     right: 0px;
     animation: showMenu 1s ease-in normal;
 }
 
-.hide {
+.hidden {
     right: -250px;
     animation: hideMenu 1s ease-out normal;
 }
@@ -237,18 +235,6 @@ md-icon svg path {
     }
 }
 
-#top-bar {
-    z-index: 2;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-}
-
-    #top-bar .logo {
-        width: 40%;
-        position: relative;
-    }
-
 /*Sermons Styling Start*/
 /*Common*/
 .clearfix {
@@ -280,8 +266,8 @@ md-icon svg path {
     height: auto;
     min-height: 100px;
     max-height: 400px;
-    padding:10px 0 30px 0;
-    background-color:#fff;
+    padding: 10px 0 30px 0;
+    background-color: #fff;
 }
     /*******End of Wrap styling and spacing*******/
 
@@ -372,103 +358,104 @@ md-icon svg path {
 
 
 /*Sermon Wrap Styling*/
-.sermon-wrap, .series-wrap{
-    background-color:#fff;
-}
-.sermon-wrap .sermon-banner {
-    width: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
+.sermon-wrap, .series-wrap {
+    background-color: #fff;
 }
 
-    .sermon-wrap .sermon-banner .imgSermonArt {
+    .sermon-wrap .sermon-banner {
         width: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
 
-    .sermon-wrap .sermon-banner .listen-wrapper, .youtube-wrapper {
-        display: none;
-    }
-
-    .sermon-wrap .sermon-banner .listen-wrapper {
-        margin: 0 auto;
-        width: 100%;
-        text-align: center;
-    }
-
-.sermon-wrap .sermon-controls-wrap {
-    width: 95%;
-    margin: 0 auto;
-    padding: 0;
-    margin-top: 415px;
-    color:#3d3d3d;
-}
-
-    .sermon-wrap .sermon-controls-wrap .sermon-title {
-        display: inline-block;
-        font-size: 2.4em;
-        margin-right: 20px;
-        font-weight: 100;
-        line-height: 1.2em;
-    }
-
-    .sermon-wrap .sermon-controls-wrap .sermon-by {
-        display: inline-block;
-        font-size: 1.5em;
-        color: #3d3d3d;
-        margin-right: 10px;
-        line-height: 1.2em;
-    }
-
-    .sermon-wrap .sermon-controls-wrap .sermon-date {
-        display: inline-block;
-        font-size: 1.2em;
-        margin-top: 10px;
-    }
-
-        .sermon-wrap .sermon-controls-wrap .sermon-date:before {
-            content: '(';
+        .sermon-wrap .sermon-banner .imgSermonArt {
+            width: 100%;
         }
 
-        .sermon-wrap .sermon-controls-wrap .sermon-date:after {
-            content: ')';
+        .sermon-wrap .sermon-banner .listen-wrapper, .youtube-wrapper {
+            display: none;
         }
 
-    .sermon-wrap .sermon-controls-wrap .sermon-desc {
-        display: block;
-        font-size: 1em;
-        line-height: 1.5em;
-        margin-top: 10px;
-        font-weight: 300;
-    }
-
-    .sermon-wrap .sermon-controls-wrap .sermon-buttons {
-        display: block;
-        margin: 0 auto;
-        margin-top: 10px;
-    }
-
-        .sermon-wrap .sermon-controls-wrap .sermon-buttons ul {
-            list-style: none;
+        .sermon-wrap .sermon-banner .listen-wrapper {
+            margin: 0 auto;
+            width: 100%;
             text-align: center;
         }
 
-            .sermon-wrap .sermon-controls-wrap .sermon-buttons ul li {
-                width: auto;
-                display: inline-block;
-                margin: 5px 20px;
-                background-color: #101010;
-                border-bottom: 2px solid #202020;
-                cursor: pointer;
-                height: auto;
+    .sermon-wrap .sermon-controls-wrap {
+        width: 95%;
+        margin: 0 auto;
+        padding: 0;
+        margin-top: 415px;
+        color: #3d3d3d;
+    }
+
+        .sermon-wrap .sermon-controls-wrap .sermon-title {
+            display: inline-block;
+            font-size: 2.4em;
+            margin-right: 20px;
+            font-weight: 100;
+            line-height: 1.2em;
+        }
+
+        .sermon-wrap .sermon-controls-wrap .sermon-by {
+            display: inline-block;
+            font-size: 1.5em;
+            color: #3d3d3d;
+            margin-right: 10px;
+            line-height: 1.2em;
+        }
+
+        .sermon-wrap .sermon-controls-wrap .sermon-date {
+            display: inline-block;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+            .sermon-wrap .sermon-controls-wrap .sermon-date:before {
+                content: '(';
             }
 
-                .sermon-wrap .sermon-controls-wrap .sermon-buttons ul li a {
-                    color: #fff;
-                    text-decoration: none;
-                    padding: 5px 20px;
-                    display: block;
+            .sermon-wrap .sermon-controls-wrap .sermon-date:after {
+                content: ')';
+            }
+
+        .sermon-wrap .sermon-controls-wrap .sermon-desc {
+            display: block;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .sermon-wrap .sermon-controls-wrap .sermon-buttons {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+            .sermon-wrap .sermon-controls-wrap .sermon-buttons ul {
+                list-style: none;
+                text-align: center;
+            }
+
+                .sermon-wrap .sermon-controls-wrap .sermon-buttons ul li {
+                    width: auto;
+                    display: inline-block;
+                    margin: 5px 20px;
+                    background-color: #101010;
+                    border-bottom: 2px solid #202020;
+                    cursor: pointer;
+                    height: auto;
                 }
+
+                    .sermon-wrap .sermon-controls-wrap .sermon-buttons ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 5px 20px;
+                        display: block;
+                    }
 
 /*****End of Sermon Wrap Styling*******/
 @media (max-width: 800px) {
@@ -604,12 +591,12 @@ md-icon svg path {
     width: 98%;
     text-align: center;
     border-top: 2px solid #3d3d3d;
-    background-color:#222;
+    background-color: #222;
     padding: 20px 1% 0 1%;
-    height:80px;
-    margin:0 0 0 0;
-    margin-top:-20px;
-    color:#fff;
+    height: 80px;
+    margin: 0 0 0 0;
+    margin-top: -20px;
+    color: #fff;
     /*background-image: url(../../Images/bgrepeat.png);
     background-repeat: repeat;*/
 }
@@ -619,7 +606,7 @@ md-icon svg path {
     left: 20px;
     top: 10px;
     height: 80px;
-    display:inline-block;
+    display: inline-block;
 }
 
 .footer-address {
@@ -632,7 +619,7 @@ md-icon svg path {
 
 .footer-copyrights {
     margin-top: 5px;
-    display:block;
+    display: block;
     font-size: 16px;
     text-align: center;
 }
@@ -641,7 +628,7 @@ md-icon svg path {
     position: relative;
     margin: 0 auto;
     width: 100%;
-    display:block;
+    display: block;
     bottom: 5px;
     text-align: center;
 }
@@ -662,7 +649,7 @@ md-icon svg path {
     position: fixed;
     top: 35px;
     z-index: 2;
-    display:none;
+    display: none;
 }
 
 .second-nav-header {
@@ -741,10 +728,9 @@ md-icon svg path {
 .about-description {
     height: auto;
     position: relative;
-    color:#3d3d3d;
+    color: #3d3d3d;
     padding: 10px 0;
     font-size: 18px;
-    z-index: -1;
     width: 95%;
     margin: 0 auto 30px auto;
     text-align: justify;
@@ -780,7 +766,7 @@ md-icon svg path {
         color: #fff;
         font-size: 10pt;
     }
-    
+
 
 .scripture {
     text-align: justify;
@@ -796,14 +782,17 @@ md-icon svg path {
     position: relative;
     left: 50px;
 }
-.reference a{color:#fff;}
+
+    .reference a {
+        color: #fff;
+    }
 
 
 .content-description {
     text-align: justify;
     width: 95%;
     margin: 0 auto;
-    color:#3d3d3d;
+    color: #3d3d3d;
 }
 
     .content-description a {
@@ -1007,7 +996,8 @@ span.errorMessage {
     margin: 10px auto 30px auto;
     top: 0;
 }
-.zoom-image{
+
+.zoom-image {
     display: block;
     transform: scale(2);
     transform-origin: 50% 20%;
@@ -1019,7 +1009,7 @@ span.errorMessage {
 .sermons-grid-wrap {
     padding: 20px;
     text-align: center;
-    background-color:#fff;
+    background-color: #fff;
 }
 
     .sermons-grid-wrap .sermons-grid {
@@ -1034,7 +1024,7 @@ span.errorMessage {
             cursor: pointer;
             min-width: 250px;
             margin: 5px;
-            position:relative;
+            position: relative;
         }
 
 .sermon-grid-comp a {
@@ -1047,9 +1037,8 @@ span.errorMessage {
     position: relative;
     top: 0;
     margin: 0 auto;
-    width:360px;
-    height:240px;
-    overflow:hidden;
+    width: 100%;
+    overflow: hidden;
 }
 
     .sermons-grid .sermon-grid-comp .sermons-art img {
@@ -1069,7 +1058,7 @@ span.errorMessage {
         letter-spacing: 0.5px;
         padding: 1%;
         vertical-align: baseline;
-        bottom:0;
+        bottom: 0;
     }
 
         .sermons-grid .sermon-grid-comp .sermons-art .grid-type .name {
@@ -1110,82 +1099,83 @@ span.errorMessage {
     height: auto;
 }
 
-#content-wrapper{
+#content-wrapper {
     /*padding-top:100px;*/
 }
-#content-wrapper #sermon-banner {
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
-    /*max-width: 1200px;*/
-    overflow: hidden;
-}
 
-    #content-wrapper #sermon-banner img {
-        /*max-width: 1200px;*/
-        height: auto;
-        align-self: center;
+    #content-wrapper #sermon-banner {
         width: 100%;
+        position: relative;
+        margin: 0 auto;
+        /*max-width: 1200px;*/
+        overflow: hidden;
     }
 
-#content-wrapper #sermon-buttons {
-    width: 0px;
-    position: relative;
-    background: rgba(0,0,0,0.6);
-    margin: 0 auto;
-    z-index: 100;
-    left: -180px;
-    height: 50px;
-}
+        #content-wrapper #sermon-banner img {
+            /*max-width: 1200px;*/
+            height: auto;
+            align-self: center;
+            width: 100%;
+        }
 
-    #content-wrapper #sermon-buttons .listen-button {
-        width: 240px;
-        position: absolute;
-        top: 3px;
-        left: -237px;
-        cursor: pointer;
-        line-height: 32px;
-        font-size: 32px;
-        text-align: center;
-        padding: 3px 0px;
-        background-color: rgba(0,0,0,0.9);
-        color: #F9F9F9;
-        text-decoration: none;
+    #content-wrapper #sermon-buttons {
+        width: 0px;
+        position: relative;
+        background: rgba(0,0,0,0.6);
+        margin: 0 auto;
+        z-index: 100;
+        left: -180px;
+        height: 50px;
     }
 
-    #content-wrapper #sermon-buttons .browse-button {
-        width: 350px;
-        position: absolute;
+        #content-wrapper #sermon-buttons .listen-button {
+            width: 240px;
+            position: absolute;
+            top: 3px;
+            left: -237px;
+            cursor: pointer;
+            line-height: 32px;
+            font-size: 32px;
+            text-align: center;
+            padding: 3px 0px;
+            background-color: rgba(0,0,0,0.9);
+            color: #F9F9F9;
+            text-decoration: none;
+        }
+
+        #content-wrapper #sermon-buttons .browse-button {
+            width: 350px;
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            line-height: 38px;
+            font-size: 36px;
+            text-align: center;
+            padding: 3px 0px;
+            background-color: rgba(0,0,0,0.8);
+            color: #F9F9F9;
+        }
+
+        #content-wrapper #sermon-buttons .watch-button {
+            width: 240px;
+            position: absolute;
+            top: 3px;
+            left: 347px;
+            cursor: pointer;
+            line-height: 32px;
+            font-size: 32px;
+            text-align: center;
+            padding: 3px 0px;
+            background-color: rgba(0,0,0,0.9);
+            color: #F9F9F9;
+            text-decoration: none;
+        }
+
+    #content-wrapper #sermon-details {
+        position: relative;
         top: 0;
-        cursor: pointer;
-        line-height: 38px;
-        font-size: 36px;
-        text-align: center;
-        padding: 3px 0px;
-        background-color: rgba(0,0,0,0.8);
-        color: #F9F9F9;
+        border-top: 1px solid yellow;
     }
-
-    #content-wrapper #sermon-buttons .watch-button {
-        width: 240px;
-        position: absolute;
-        top: 3px;
-        left: 347px;
-        cursor: pointer;
-        line-height: 32px;
-        font-size: 32px;
-        text-align: center;
-        padding: 3px 0px;
-        background-color: rgba(0,0,0,0.9);
-        color: #F9F9F9;
-        text-decoration: none;
-    }
-
-#content-wrapper #sermon-details {
-    position: relative;
-    top: 0;
-    border-top: 1px solid yellow;
-}
 
 #listen-wrapper {
     height: 40px;
@@ -1354,28 +1344,3 @@ span.errorMessage {
 .slidesjs-pagination .active {
     color: red;
 }
-
-/* Media quires for a responsive layout */
-
-/* For tablets & smart phones */
-@media (max-width: 767px) {
-
-    .container {
-        width: auto;
-    }
-}
-
-/* For smartphones */
-@media (max-width: 480px) {
-    .container {
-        width: auto;
-    }
-}
-
-/* For larger displays */
-@media (min-width: 1200px) {
-    .container {
-        width: 100%;
-    }
-}
-/*End of container css classes*/

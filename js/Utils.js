@@ -1,4 +1,5 @@
-﻿Array.prototype.find = function (c, v) {
+﻿"use strict";
+Array.prototype.find = function (c, v) {
     for (var i = 0; i < this.length; i++) {
         if (this[i][c] === v) {
             return this[i];
@@ -51,13 +52,28 @@ var CreateSpeaker = function (speaker) {
     newSpeaker.Name = speaker.SPEAKERNAME;
     return newSpeaker;
 }
-var exports = module.exports = {};
-exports.CreateSermon = function (sermon) {
-    return CreateSermon(sermon);
-}
-exports.CreateSeries = function (series) {
-    return CreateSeries(series);
-}
-exports.CreateSpeaker = function (speaker) {
-    return CreateSpeaker(speaker);
-}
+angular.module('Util', [])
+.service('progress', function () {
+    var progress = {
+        count : 0
+    }
+    this.inc = function () {
+        progress.count++;
+    }
+    this.dec = function () {
+        progress.count--;
+    }
+    this.GetCount = function () {
+        return progress;
+    }
+})
+//var exports = module.exports = {};
+//exports.CreateSermon = function (sermon) {
+//    return CreateSermon(sermon);
+//}
+//exports.CreateSeries = function (series) {
+//    return CreateSeries(series);
+//}
+//exports.CreateSpeaker = function (speaker) {
+//    return CreateSpeaker(speaker);
+//}

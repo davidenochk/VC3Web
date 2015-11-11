@@ -13,7 +13,7 @@ $base-horizontal-margin: 20px;
 $base-padding: 10px;
 $lg-btn-width: 200px;
 $white: #fff;
-$black: #3d3d3d;
+$black: #343434;
 /*#endregion */
 /*#region Banner(On every content page, add sliding content) */
 *:focus {
@@ -52,29 +52,30 @@ $black: #3d3d3d;
                 text-align: center;
                 margin: 20px;
             }
-
-            .lg-text {
-                font-size: $banner-font-size-lg;
-                font-weight: 800;
-                text-transform: uppercase;
-                line-height: 1;
-            }
-
-            .md-text {
-                font-size: $banner-font-size-md;
-                font-weight: 600;
-                text-transform: uppercase;
-                line-height: 1;
-            }
-
-            .sm-text {
-                font-size: $banner-font-size-sm;
-                font-weight: 400;
-                text-transform: uppercase;
-                line-height: 1;
-            }
         }
     }
+}
+
+
+.lg-text {
+    font-size: $banner-font-size-lg;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.md-text {
+    font-size: $banner-font-size-md;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.sm-text {
+    font-size: $banner-font-size-sm;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 .main_content {
@@ -105,6 +106,17 @@ $black: #3d3d3d;
     margin: 0 5px;
 }
 
+#top-bar {
+    z-index: 2;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+    #top-bar .logo {
+        height:100px;
+        position: relative;
+    }
 /*#endregion */
 
 /*#region Buttons */
@@ -124,36 +136,45 @@ $black: #3d3d3d;
     @include btn();
 }
 
+.lg-btn {
+    @include lg-btn();
+}
+
 .lg-btn-lt {
     border: 3px solid #FFF;
     color: $black;
     background-color: #FFF;
-    @include lg-btn();
-}
 
-.lg-btn-lt:hover {
-    background-color: $black;
-    color: #fff;
+    &:hover {
+        background-color: $black;
+        color: #fff;
+    }
 }
 
 .lg-btn-trans {
     border: 3px solid $white;
     color: #FFF;
-    @include lg-btn();
+
+    &:hover {
+        background-color: $white;
+        color: $black;
+        border: 3px solid $white;
+    }
 }
 
-.lg-btn-trans:hover {
-    background-color: $white;
-    color: $black;
-    border: 3px solid $white;
+.lg-btn-dk {
+    border: 3px solid $black;
+    color: $white;
+    background-color: $black;
+
+    &:hover {
+        color: $black;
+        border: 3px solid $black;
+        background-color: $white;
+    }
 }
-
-
 /*#endregion */
-
 /*#region Side Headings */
-
-
 .side-head {
     color: $black;
     font-weight: 200;
@@ -165,10 +186,7 @@ $black: #3d3d3d;
     margin-bottom: 10px;
     line-height: 1em;
 }
-
-
 /*#endregion */
-
 /*#region Background Image Styles */
 .big-banner-content {
     display: block;
@@ -187,12 +205,49 @@ $black: #3d3d3d;
     width: 100%;
 }
 
+@media(max-width:700px) {
+}
+
 @media(max-width:500px) {
+}
+
+
+/* Media quires for a responsive layout */
+
+/* For tablets & smart phones */
+@media (max-width: 767px) {
+    .lg-text {
+        font-size: $banner-font-size-md;
+    }
+    .md-text{
+        font-size:$banner-font-size-sm;
+    }
+}
+
+/* For smartphones */
+@media (max-width: 480px) {
     .mobile-image {
         height: 500px !important;
         background-size: cover;
     }
+    .lg-text {
+        font-size: $banner-font-size-md;
+    }
+    .md-text{
+        font-size:$banner-font-size-sm;
+    }
 }
+
+/* For larger displays */
+@media (min-width: 1200px) {
+    .lg-text {
+        font-size: $banner-font-size-lg;
+    }
+    .md-text{
+        font-size:$banner-font-size-md;
+    }
+}
+/*End of container css classes*/
 
 .back-left {
     background-position: left;
@@ -228,11 +283,12 @@ $black: #3d3d3d;
     margin-top: 360px;
 }
 /*#endregion */
-.table-container{
-    width:100%;
-    overflow:scroll;
-    max-height:300px;
+.table-container {
+    width: 100%;
+    overflow: scroll;
+    max-height: 300px;
 }
+
 td {
     div {
         max-width: 150px;
@@ -241,6 +297,21 @@ td {
         overflow: hidden;
     }
 }
-.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{
-    padding:0;
+
+.table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+    padding: 0;
+}
+
+.progress-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.progress-wrap > div {
+    width: 100%;
+    height: 100%;
 }
