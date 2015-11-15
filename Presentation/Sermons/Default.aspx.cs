@@ -232,9 +232,9 @@ public partial class Presentation_Sermons_Default : System.Web.UI.Page
         hdYoutubeMain.Value = sermonVideoLink;
         divListen.InnerHtml = "<audio controls><source src='" + sermonAudioLink + "'></audio>";
         if (sermonAudioLink != "" && sermonAudioLink != null)
-        { liListenButton.Visible = true; liDownloadButton.Visible = true; liDownloadButton.InnerHtml = "<a href='" + sermonAudioLink + "' download='C3Victory - " + seriesName + " - " + sermonName + "'>Download Audio</a>"; }
+        { listenButton.Visible = true; liDownloadButton.Visible = true; liDownloadButton.InnerHtml = "<a href='" + sermonAudioLink + "' download='C3Victory - " + seriesName + " - " + sermonName + "'>Download Audio</a>"; }
         else
-        { liListenButton.Visible = false; liDownloadButton.Visible = false; }
+        { listenButton.Visible = false; liDownloadButton.Visible = false; }
         if (sermonVideoLink != "" && sermonVideoLink != null)
             liWatchButton.Visible = true;
         else

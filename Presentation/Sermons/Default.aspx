@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Presentation/main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Sermons_Default" %>
+﻿<%@ Page Language="C#" MasterPageFile="../main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Sermons_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/audioplayer.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
             //    $('.youtube-wrapper').html('<object width="' + currentWidth + '" height="' + currentHeight + '"><param name="movie" value="' + currentYoutubeUrl + '"></param><param name="allowFullScreen" value="true"></param> <param name="allowscriptaccess" value="always"></param> <embed src="' + currentYoutubeUrl + '" type="application/x-shockwave-flash" width="' + currentWidth + '" height="' + currentHeight + '" allowscriptaccess="always" allowfullscreen="true"></embed></object>');
             //    $('.listen-wrapper').css('display', 'none').html();
             //});
-            $('.listen-button').click(function () {
+            $('#listenButton').click(function () {
                 $('.listen-wrapper').css('display', 'block');
                 $('.youtube-wrapper').css('display', 'none').html('');
                 $('.imgSermon').css('display', 'block');
@@ -45,13 +45,17 @@
                 <asp:Label ID="lblSermonSpeaker" runat="server" CssClass="sermon-by"></asp:Label>
                 <asp:Label ID="lblSermonDate" runat="server" CssClass="sermon-date"></asp:Label>
                 <asp:Label ID="lblSermonDescription" runat="server" CssClass="sermon-desc"></asp:Label>
-                <div class="sermon-buttons" id="divListenWatch" runat="server">
+                <div id="divListenWatch" runat="server" data-layout="row" data-layout-align="center center">
+                    <div class="lg-btn lg-btn-dk" id="listenButton" runat="server">Listen</div>
+                    <div class="lg-btn lg-btn-dk" id="liWatchButton" runat="server">Watch</div>
+                    <div class="lg-btn lg-btn-dk" id="liDownloadButton" runat="server">Download</div>
+                </div>
+                <%--<div class="sermon-buttons" id="divListenWatch" runat="server">
                     <ul>
-                        <li class="listen-button" id="liListenButton" runat="server"><a>Listen</a></li>
                         <li class="watch-button" id="liWatchButton" runat="server"><a>Watch</a></li>
                         <li class="download-button" id="liDownloadButton" runat="server">Download</li>
                     </ul>
-                </div>
+                </div>--%>
             </div>
         </div>
         <div class="series-wrap" id="divSeriesWrap" runat="server">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="VC3 Church - Next Service" Language="C#" MasterPageFile="~/Presentation/main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Services_Default" %>
+﻿<%@ Page Title="VC3 Church - Next Service" Language="C#" MasterPageFile="../main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Services_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

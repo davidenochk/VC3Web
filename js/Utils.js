@@ -17,7 +17,14 @@ Array.prototype.findAll = function (c, v) {
     return r;
 };
 function comp(a, b) {
-    return -new Date(a.SERMONDATE).getTime() + new Date(b.SERMONDATE).getTime();
+    return -new Date(a.On).getTime() + new Date(b.On).getTime();
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 var CreateSermon = function (sermon) {
     var newSermon = {};

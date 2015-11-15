@@ -13,6 +13,12 @@
     position: relative;
     margin: 0 auto;
     padding: 0;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 md-icon svg path {
@@ -25,7 +31,7 @@ md-icon svg path {
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-image: url(../Images/bgs/Web_12.JPG);
+    display: block;
     background-size: cover;
     background-position: top center;
 }
@@ -40,200 +46,7 @@ md-icon svg path {
     -webkit-filter: url(#svglogo);
 }
 
-#side-menu {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    top: 0;
-    background-color: #333;
-    z-index: 99999;
-}
 
-    #side-menu ul {
-        margin: 0 auto;
-        position: relative;
-        width: 210px;
-        padding: 20px;
-        color: #ffffff;
-        font-size: 1em;
-        list-style: none;
-        margin-top: 50px;
-    }
-
-        #side-menu ul li {
-            display: block;
-            text-align: left;
-            margin: 5px 0;
-            padding: 5px;
-            font-size: 0.9em;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-            #side-menu ul li a md-icon {
-                margin-bottom: 0px;
-                height: 25px;
-                width: 30px;
-                display: inline-block;
-                margin-right: 5px;
-            }
-
-            #side-menu ul li a {
-                color: #ddd;
-                text-decoration: none;
-                position: relative;
-                line-height: 30px;
-                vertical-align: middle;
-                padding: 3px 7px;
-                font-size: 1em;
-                display: block;
-                border-bottom: 1px solid #333;
-                font-weight: bold;
-            }
-
-                #side-menu ul li a:hover {
-                    border-bottom: 1px solid #555;
-                }
-
-    #side-menu .close {
-        font-size: 1.2em;
-        position: absolute;
-        top: 20px;
-        right: 25px;
-        color: #fff;
-        cursor: pointer;
-        line-height: 20px;
-        vertical-align: middle;
-        font-weight: normal;
-    }
-
-.rotate {
-    transform-origin: 50% 50%;
-    animation: rotateBtn 1s ease 1 normal;
-    -webkit-animation: rotateBtn 1s ease 1 normal;
-}
-
-.unrotate {
-    transform-origin: 50% 50%;
-    animation: unrotateBtn 1s ease 1 normal;
-    -webkit-animation: unrotateBtn 1s ease 1 normal;
-}
-
-@-webkit-keyframes rotateBtn {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes unrotateBtn {
-    0% {
-        transform: rotate(360deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-#menu-icon {
-    height: auto;
-    width: auto;
-    position: absolute;
-    left: -130px;
-    top: 0;
-    margin: 10px;
-    cursor: pointer;
-    z-index: 999;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    /*border: 1px solid #fff;*/
-    border-radius: 3px;
-    padding: 5px 10px;
-    background-color: #202020;
-    padding-bottom: 7px;
-    padding-right: 12px;
-}
-
-    #menu-icon span {
-        line-height: 30px;
-        position: relative;
-        vertical-align: middle;
-        margin-left: 5px;
-    }
-
-@media(max-width:800px) {
-    #menu-icon {
-        width: 24px;
-        height: 24px;
-        border: none;
-        left: -60px;
-    }
-
-        #menu-icon span {
-            display: none;
-        }
-}
-
-.visible {
-    right: 0px;
-    animation: showMenu 1s ease-in normal;
-}
-
-.hidden {
-    right: -250px;
-    animation: hideMenu 1s ease-out normal;
-}
-
-@keyframes showMenu {
-
-    0% {
-        right: -200px;
-    }
-
-    10% {
-        right: 0;
-    }
-}
-
-@-webkit-keyframes showMenu {
-
-    0% {
-        right: -200px;
-    }
-
-    10% {
-        right: 0;
-    }
-}
-
-@keyframes hideMenu {
-
-
-    0% {
-        right: 0;
-    }
-
-    10% {
-        right: -200px;
-    }
-}
-
-@-webkit-keyframes hideMenu {
-
-
-    0% {
-        right: 0%;
-    }
-
-    10% {
-        right: -200px;
-    }
-}
 
 /*Sermons Styling Start*/
 /*Common*/
@@ -583,65 +396,8 @@ md-icon svg path {
     height: auto;
     position: relative;
     width: 100%;
+    min-height: 550px;
 }
-
-#footer-wrap {
-    position: relative;
-    top: 20px;
-    width: 98%;
-    text-align: center;
-    border-top: 2px solid #3d3d3d;
-    background-color: #222;
-    padding: 20px 1% 0 1%;
-    height: 80px;
-    margin: 0 0 0 0;
-    margin-top: -20px;
-    color: #fff;
-    /*background-image: url(../../Images/bgrepeat.png);
-    background-repeat: repeat;*/
-}
-
-.footer-logo {
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    height: 80px;
-    display: inline-block;
-}
-
-.footer-address {
-    text-align: right;
-    position: absolute;
-    bottom: 40px;
-    right: 20px;
-    font-size: 16px;
-}
-
-.footer-copyrights {
-    margin-top: 5px;
-    display: block;
-    font-size: 16px;
-    text-align: center;
-}
-
-.footer-social {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    display: block;
-    bottom: 5px;
-    text-align: center;
-}
-
-    .footer-social a {
-        display: inline-block;
-    }
-
-        .footer-social a img {
-            height: 30px;
-            margin: 2px;
-            position: relative;
-        }
 
 .second-nav-wrap {
     width: 100%;
@@ -1003,89 +759,7 @@ span.errorMessage {
     transform-origin: 50% 20%;
 }
 
-/*
-    Sermon Archive Styling
-    */
-.sermons-grid-wrap {
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
-}
 
-    .sermons-grid-wrap .sermons-grid {
-        margin: 0 auto;
-        width: 100%;
-    }
-
-        .sermons-grid-wrap .sermons-grid .sermon-grid-comp {
-            width: 23%;
-            display: inline-block;
-            padding: 0 5px;
-            cursor: pointer;
-            min-width: 250px;
-            margin: 5px;
-            position: relative;
-        }
-
-.sermon-grid-comp a {
-    color: #FFF;
-    text-decoration: none;
-    position: relative;
-}
-
-.sermons-grid .sermon-grid-comp .sermons-art {
-    position: relative;
-    top: 0;
-    margin: 0 auto;
-    width: 100%;
-    overflow: hidden;
-}
-
-    .sermons-grid .sermon-grid-comp .sermons-art img {
-        width: 100%;
-        position: relative;
-        top: 0;
-        left: 0;
-    }
-
-    .sermons-grid .sermon-grid-comp .sermons-art .grid-type {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.7);
-        font-size: 16px;
-        line-height: 24px;
-        text-align: left;
-        width: 98%;
-        letter-spacing: 0.5px;
-        padding: 1%;
-        vertical-align: baseline;
-        bottom: 0;
-    }
-
-        .sermons-grid .sermon-grid-comp .sermons-art .grid-type .name {
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: 1.1em;
-        }
-
-        .sermons-grid .sermon-grid-comp .sermons-art .grid-type .issermon {
-            font-size: 10pt;
-            margin-right: 10px;
-            white-space: nowrap;
-            display: none;
-        }
-
-        .sermons-grid .sermon-grid-comp .sermons-art .grid-type .date {
-            font-size: 0.8em;
-            color: #EEE;
-            font-weight: 400;
-            white-space: nowrap;
-            display: block;
-        }
-
-.sermons-grid .sermon-grid-comp:hover .grid-type-wrap .grid-type {
-    display: block;
-    background-color: rgba(0,0,0,0.8);
-}
 /*Other CSS Styling Ends*/
 
 /*Container CSS*/
@@ -1127,21 +801,6 @@ span.errorMessage {
         left: -180px;
         height: 50px;
     }
-
-        #content-wrapper #sermon-buttons .listen-button {
-            width: 240px;
-            position: absolute;
-            top: 3px;
-            left: -237px;
-            cursor: pointer;
-            line-height: 32px;
-            font-size: 32px;
-            text-align: center;
-            padding: 3px 0px;
-            background-color: rgba(0,0,0,0.9);
-            color: #F9F9F9;
-            text-decoration: none;
-        }
 
         #content-wrapper #sermon-buttons .browse-button {
             width: 350px;
@@ -1256,22 +915,6 @@ span.errorMessage {
     padding: 0;
 }
 
-.contentMainWrapper .sermon-block .listen-button {
-    height: 25px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    cursor: pointer;
-    background-color: rgba(0,0,0,0.9);
-    color: #EEE;
-    padding: 2px 20px;
-    text-align: center;
-    font-size: 24px;
-    line-height: 24px;
-    text-decoration: none;
-}
-
 .contentMainWrapper .sermon-block .watch-button {
     height: 25px;
     position: absolute;
@@ -1288,13 +931,9 @@ span.errorMessage {
     text-decoration: none;
 }
 
-.contentMainWrapper .sermon-block .listen-button:hover {
-    opacity: 1;
-}
-
-.contentMainWrapper .sermon-block .watch-button:hover {
-    opacity: 1;
-}
+    .contentMainWrapper .sermon-block .watch-button:hover {
+        opacity: 1;
+    }
 
 .bar {
     width: 80%;
@@ -1338,6 +977,7 @@ span.errorMessage {
 /* Center the slideshow */
 .container {
     margin: 0 auto;
+    width:100%;
 }
 
 /* Show active item in the pagination */

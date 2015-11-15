@@ -11,6 +11,7 @@
     <meta name="description" content="C3 CHURCH SECUNDERABAD IS ONE OF THE CONTEMPORARY CHURCHES IN HYDERABAD AND SECUNDERABAD WITH BURDEN FOR URBAN YOUTH, PASSIONATE TO PRAISE, WORSHIP AND GLORIFY GOD AND EMPOWER THE WEAK WITH THE WORD OF GOD." />
     <meta name="keywords" content="C3 CHURCH, C3 VICTORY SECUNDERABAD, C3 Church Secunderabad, C3 Victory, C3 India, church near clock tower, VC3 Church, churches in secunderabad, youth church, christian music, christian, christ centered, pentecostal, spirit filled, churches in hyderabad, friends, hang out" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/fonts.css" rel="stylesheet" />
     <link href="../lib/angular-material/angular-material.min.css" rel="stylesheet" />
     <script src="../../lib/jquery/dist/jquery.min.js"></script>
@@ -18,12 +19,19 @@
     <script src="../../lib/angular-material/angular-material.min.js"></script>
     <script src="../../lib/angular-animate/angular-animate.min.js"></script>
     <script src="../../lib/angular-aria/angular-aria.min.js"></script>
+    <script src="../../lib/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="../../lib/firebase/firebase.js"></script>
     <script src="../../lib/angularfire/dist/angularfire.min.js"></script>
     <script src="../../js/Utils.js"></script>
     <script src="../../js/app.js"></script>
     <script src="../Archive/ArchiveService.js"></script>
     <script src="../Archive/ArchiveController.js"></script>
+    <script src="../About/AboutService.js"></script>
+    <script src="../About/AboutController.js"></script>
+    <script src="../Sermons/SermonService.js"></script>
+    <script src="../Sermons/SermonController.js"></script>
+    <script src="../Sermons/SeriesService.js"></script>
+    <script src="../Sermons/SeriesController.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.second-nav-header li').click(function () {
@@ -138,7 +146,7 @@
                 </asp:ContentPlaceHolder>
             </div>
             <div id="footer-wrap">
-                <img src="../../Images/church-logo.png" class="footer-logo" />
+                <%--<img src="../../Images/church-logo.png" class="footer-logo" />--%>
                 <div class="footer-social">
                     <a href="http://facebook.com/c3victory" target="_blank">
                         <img src="../../Images/soc-fb-on.png" /></a>

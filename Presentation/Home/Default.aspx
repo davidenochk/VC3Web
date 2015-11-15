@@ -1,4 +1,4 @@
-﻿<%@ Page Title="C3 Victory Secunderabad - GROW • BUILD • INFLUENCE" Language="C#" MasterPageFile="~/Presentation/main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Home_Default" %>
+﻿<%@ Page Title="C3 Victory Secunderabad - GROW • BUILD • INFLUENCE" Language="C#" MasterPageFile="../main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Presentation_Home_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
@@ -70,7 +70,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
-        <div id="bg" class="svgs"></div>
+        <div id="bg"></div>
         <div class="shortcut-wrapper">
         <div class="home-title">RELEVANCE</div>
             <div class="archive"><a href="../Archive/Default.aspx">Sermon Archive</a></div>

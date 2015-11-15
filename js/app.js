@@ -1,5 +1,10 @@
 ﻿"use strict";
-var app = angular.module('vc3app', ['ngMaterial', 'firebase', 'Util'])
+var app = angular.module('vc3app', ['ngMaterial', 'ngSanitize', 'ngRoute', 'firebase', 'Util'])
+    .filter('dateCustom', function ($filter) {
+        return function (val) {
+            return $filter('date')(new Date(val), 'dd MMM, yyyy');
+        }
+    })
     .config(function ($mdIconProvider) {
         $mdIconProvider
         .defaultIconSet('../../icons/icon.svg')
@@ -9,48 +14,85 @@ var app = angular.module('vc3app', ['ngMaterial', 'firebase', 'Util'])
         .iconSet('action', '../../icons/action.svg')
         .iconSet('navigation', '../../icons/navigation.svg', 24)
     })
-    .controller('MainCtrl', function ($scope, progress) {
+    .config(function ($routeProvider) {
+        $routeProvider.when("/", {
+            templateUrl: "Views/Archive/archive.html",
+            controller: "ArchiveController"
+        })
+        .when("/Sermon/:id", {
+            templateUrl: "Views/Sermons/sermon.html",
+            controller: "SermonController"
+        })
+        .when('/Home', {
+            templateUrl: 'Views/Home/home.html',
+            controller: 'HomeController'
+        })
+        .when("/Series/:id", {
+            templateUrl: "Views/Sermons/series.html",
+            controller: "SeriesController"
+        })
+        .when('/Archive', {
+            templateUrl: 'Views/Archive/Archive.html',
+            controller: "ArchiveController"
+        })
+        .when('/About', {
+            templateUrl: 'Views/About/About.html',
+            controller: "AboutController"
+        })
+        .when('/Ministry', {
+            templateUrl: 'Views/About/Ministry.html',
+            controller: "MinistryController"
+        })
+        .when('/Contact', {
+            templateUrl: 'Views/About/Contact.html',
+            controller: "ContactController"
+        })
+        .otherwise({
+            redirectTo: '/'
+        })
+    })
+    .controller('MainCtrl', function ($scope, progress, config) {
         $scope.progress = progress.GetCount();
-        console.log($scope.progress);
+        $scope.mail_info = config.mail_info;
     })
 .controller('AppCtrl', function ($scope, $http, $filter) {
-    $http.post('../vc3siteservice.asmx/GetSpeakers', {}).success(function (data) {
-        $scope.speakers = JSON.parse(data.d);
-    })
-    $http.post('../vc3siteservice.asmx/GetSeries', {}).success(function (data) {
-        $scope.series = JSON.parse(data.d);
-    })
-    $scope.srm = {}
-    $scope.srm.place = '';
-    $scope.srm.series = 0;
-    $scope.srm.image = '';
-    $scope.srm.video = '';
-    $scope.AddSermon = function () {
-        var data = {
-            title: $scope.srm.name,
-            descr: $scope.srm.desc,
-            by: $scope.srm.by,
-            seriesID: $scope.srm.series,
-            sermonPlace: $scope.srm.place,
-            sermonDate: $filter('date')($scope.srm.date, 'longDate'),
-            audioLink: $scope.srm.audio,
-            imageLink: $scope.srm.image,
-            videoLink: $scope.srm.video,
-            artLink: $scope.srm.art,
-            artSmallLink: $scope.srm.art_sml
-        }
-        $http.post('../vc3siteservice.asmx/AddSermon', data).success(function (data) {
-            console.log(data);
-        });
-    }
+    //$http.post('../vc3siteservice.asmx/GetSpeakers', {}).success(function (data) {
+    //    $scope.speakers = JSON.parse(data.d);
+    //})
+    //$http.post('../vc3siteservice.asmx/GetSeries', {}).success(function (data) {
+    //    $scope.series = JSON.parse(data.d);
+    //})
+    //$scope.srm = {}
+    //$scope.srm.place = '';
+    //$scope.srm.series = 0;
+    //$scope.srm.image = '';
+    //$scope.srm.video = '';
+    //$scope.AddSermon = function () {
+    //    var data = {
+    //        title: $scope.srm.name,
+    //        descr: $scope.srm.desc,
+    //        by: $scope.srm.by,
+    //        seriesID: $scope.srm.series,
+    //        sermonPlace: $scope.srm.place,
+    //        sermonDate: $filter('date')($scope.srm.date, 'longDate'),
+    //        audioLink: $scope.srm.audio,
+    //        imageLink: $scope.srm.image,
+    //        videoLink: $scope.srm.video,
+    //        artLink: $scope.srm.art,
+    //        artSmallLink: $scope.srm.art_sml
+    //    }
+    //    $http.post('../vc3siteservice.asmx/AddSermon', data).success(function (data) {
+    //        console.log(data);
+    //    });
+    //}
 });
-app.controller('SermonController', function ($scope, data, $sce, $window, urls) {
+app.controller('SermonController', function ($scope, data, $sce, $window, config) {
     $scope.series = data.series;
     $scope.sermons = data.sermons;
     $scope.serie = {};
     $scope.sermon = {};
     $scope.GetSermonURL = function (id) {
-        return urls.sermonURL + id;
+        return config.sermonURL + id;
     }
     $scope.SetCurrentSeries = function () {
         //Get the seriesid from query strings
@@ -85,16 +127,18 @@ app.controller('SermonController', function ($scope, data, $sce, $window, urls) 
         $scope.SetCurrentSermon();
     })
 })
-app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
+app.service('data', function ($firebaseArray, $firebaseObject, $q, config) {
     let thiss = this;
     this.series = {};
     this.GetSeries = function () {
         var q = $q.defer();
         if (!thiss.series.length) {
-            var srsObj = new Firebase(urls.fire_SeriesURL);
+            var srsObj = new Firebase(config.fire_SeriesURL);
             var series = $firebaseArray(srsObj);
-            series.$loaded(function (res) { thiss.series = res; q.resolve(thiss.series); })
+            series.$loaded(function (res) { thiss.series = res; q.resolve(thiss.series); });
+            console.log('Series Refreshed');
         } else {
+            console.log('Series From Cache');
             q.resolve(thiss.series);
         }
         return q.promise;
@@ -103,10 +147,12 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
     this.GetSermons = function () {
         var q = $q.defer();
         if (!thiss.series.length) {
-            var srsObj = new Firebase(urls.fire_SermonsURL);
+            var srsObj = new Firebase(config.fire_SermonsURL);
             var sermons = $firebaseArray(srsObj);
             sermons.$loaded(function (res) { thiss.sermons = res; q.resolve(thiss.sermons); })
+            console.log('Sermons Refreshed');
         } else {
+            console.log('Sermons from cache');
             q.resolve(thiss.sermons);
         }
         return q.promise;
@@ -115,7 +161,7 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
     this.GetSpeakers = function () {
         var q = $q.defer();
         if (!thiss.speakers.length) {
-            var srsObj = new Firebase(urls.fire_SpeakersURL);
+            var srsObj = new Firebase(config.fire_SpeakersURL);
             var speakers = $firebaseArray(srsObj);
             speakers.$loaded(function (res) { thiss.speakers = res; q.resolve(thiss.speakers); })
         } else {
@@ -123,9 +169,35 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
         }
         return q.promise;
     }
+    this.images = {};
+    this.GetImages = function () {
+        var q = $q.defer();
+        if (!thiss.images.length) {
+            var imgObj = new Firebase(config.fire_ImagesURL);
+            var images = $firebaseArray(imgObj);
+            images.$loaded(function (res) { thiss.images = res; q.resolve(FormArray(thiss.images)); })
+        }
+        else {
+            q.resolve(thiss.images);
+        }
+        return q.promise;
+    }
+    this.slides = {};
+    this.GetSlides = function () {
+        var q = $q.defer();
+        if (!thiss.slides.length) {
+            var slideObj = new Firebase(config.fire_SlidesURL);
+            var slides = $firebaseArray(slideObj);
+            slides.$loaded(function (res) { thiss.slides = res; q.resolve(FormArray(thiss.slides)); })
+        }
+        else {
+            q.resolve(thiss.slides);
+        }
+        return q.promise;
+    }
     this.Add = function (name, sermon) {
         var deferred = $q.defer();
-        var srsObj = new Firebase(urls.fire_SermonsURL);
+        var srsObj = new Firebase(config.fire_SermonsURL);
         var sermons = $firebaseArray(srsObj);
         console.log('trig');
         sermons.$add(sermon).then(function (ref) {
@@ -136,7 +208,7 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
     }
     this.Edit = function (name, newsermon, id) {
         var deferred = $q.defer();
-        var srs = new Firebase(urls.fire_SermonsURL + "/" + id);
+        var srs = new Firebase(config.fire_SermonsURL + "/" + id);
         var sermon = $firebaseObject(srs);
         sermon = CopyObject(newsermon, sermon);
         sermon.$save().then(function (res) {
@@ -152,18 +224,43 @@ app.service('data', function ($firebaseArray, $firebaseObject, $q, urls) {
         }
         return newObj;
     }
+    var FormArray = function (inObj) {
+        var outObj = {};
+        for (var i = 0; i < inObj.length; i++) {
+            var str = inObj[i].$id;
+            if (inObj[i].$value)
+                outObj[str] = inObj[i].$value;
+            else {
+                var keys = Object.keys(inObj[i]);
+                for (var j = 0; j < keys.length; j++) {
+                    if (keys[j].indexOf('$') < 0)
+                        outObj[keys[j]] = inObj[i][keys[j]];
+                }
+            }
+        }
+        return outObj;
+    }
 });
-app.service('urls', function ($window) {
+app.service('config', function ($window) {
     let _this = this;
-    this.sermonURL = 'http://' + $window.location.host + '/Presentation/Sermons?sermonid=';
-    this.seriesURL = 'http://' + $window.location.host + '/Presentation/Series?seriesid=';
-    this.fire_SermonsURL = "https://demovc3.firebaseio.com/sermons";
-    this.fire_SeriesURL = "https://demovc3.firebaseio.com/series";
-    this.fire_SpeakersURL = "https://demovc3.firebaseio.com/speakers";
+    var fire_app_name = "demovc3";
+    //this.sermonURL = 'http://' + $window.location.host + '/Presentation/Sermons/sermon.aspx?id=';
+    //this.seriesURL = 'http://' + $window.location.host + '/Presentation/Series/series.aspx?id=';
+    this.sermonURL = '#/Sermon/';
+    this.seriesURL = '#/Series/';
+    this.fire_SermonsURL = "https://" + fire_app_name + ".firebaseio.com/sermons";
+    this.fire_SeriesURL = "https://" + fire_app_name + ".firebaseio.com/series";
+    this.fire_SpeakersURL = "https://" + fire_app_name + ".firebaseio.com/speakers";
+    this.fire_ImagesURL = "https://" + fire_app_name + ".firebaseio.com/images";
+    this.fire_SlidesURL = "https://" + fire_app_name + ".firebaseio.com/slides";
     this.RedirectToSermon = function (id) {
         $window.location.href = _this.sermonURL + id;
     }
     this.RedirectToSeries = function (id) {
         $window.location.href = _this.seriesURL + id;
     }
+    this.default_series = function (serie) {
+        return 'This sermon series was recorded on one of the Sunday services.';
+    }
+    this.mail_info = "info@c3victory.in";
 })
